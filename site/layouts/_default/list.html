@@ -2,18 +2,21 @@
 <body class="ma0 pa0 bg-near-white charcoal avenir ">
   <!-- w-100 h-100 ma0 pa0 overflow-hidden backface-hidden bg-near-white charcoal avenir fixed disable-scrolling --><!-- no-clutter -->
 
-  {{/* partial "svg" . */}}
-  {{/* partial "horizontalNav.html" . */}}
+  <!--{{/* partial "svg" . */}}-->
+  <!--{{/* partial "horizontalNav.html" . */}}-->
 
 <div class="carousel carousel-main vh-100 vw-100 relative z-1"><!-- https://discourse.gohugo.io/t/get-pages-from-multiple-sections-in-one-list/15271 -->
 
+<!--
 {{/* range .Sections.ByWeight }}
-<span class="red">{{ .Title | lower }}</span>
+  <span class="red">{{ .Title | lower }}</span>
 {{ end */}}
-
+-->
+<!--
 {{/* if eq .Sections "booking" }}
   {{ partial "contact" . }}
 {{ end */}}
+-->
 
   {{ range .Sections.ByWeight }}
   <section id="{{ .Title | lower | urlize }}" class="w-100 mb4"><!-- carousel-cell h-100 scrollable overflow-y-scroll touch-scrolling w-100 -->
@@ -32,7 +35,7 @@
         class="highlight db dark-gray athelas f5 f4-ns f3-m f3-l lh-copy measure pa2 measure-ns pa4-ns measure-m pa2-m measure-wide-l pa0-l mr-auto ml-auto">
         <heading>
           <!--svg viewBox="0 0 482 482" class="no-select pr2 h2 red" style="-webkit-transform: translate3d(0,0,0);"><use xlink:href="#url"></use></svg-->
-          <h3 class="f1">{{ .Title }}&nbsp;<!--a href="{{ .RelPermalink }}" class="link emojisymbol o-30 glow no-underline"
+          <h3 class="f1 ma0">{{ .Title }}&nbsp;<!--a href="{{ .RelPermalink }}" class="link emojisymbol o-30 glow no-underline"
               title="{{ .Permalink | absURL | lower | urlize }}"></a--></h3><!-- Alternative "already documented" SVG: https://discourse.gohugo.io/t/solved-inject-an-svg-file-into-my-html/7446/9 --><!--code>{{ .Page.CurrentSection.Title | lower | urlize }}</code-->
           {{ partial "share" . }}
         </heading>

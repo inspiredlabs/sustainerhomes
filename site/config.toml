@@ -1,4 +1,4 @@
-baseurl = "./"
+baseurl = "sustainerhomes.netlify.com/" #baseurl = "./"
 languageCode = "en-gb"
 languageLang = "en"
 title = ""

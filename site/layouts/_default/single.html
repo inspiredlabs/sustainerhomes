@@ -1,6 +1,24 @@
-{{ define "main" }}
+{{ partial "head" . }}
+{{/* note: context (aka the dot), is more important than customising: `baseof.html`: gohugo.io/templates/base/ */}}
+{{/* todo: hugo template lookup order "head" site:discourse.gohugo.io/ */}}
 
-{{ partial "jumbotron" (dict "imageUrl" "/img/7.jpg" "title" "This is where the heading goes" "subtitle" "This is where the subtitle goes") }}
-{{ .Content }}
+<body
+  class=" ma0 pa0 backface-hidden bg-near-white charcoal avenir overflow-scroll"><!-- no-clutter -->
+  {{/* range .Sections }}{{ partial "jumbotron" . }}{{ end */}}
 
-{{ end }}
+  <!-- Main layout, in a single column -->
+  <article
+    class="highlight db dark-gray athelas f5 f4-ns f3-m f3-l lh-copy measure pa2 measure-ns pa4-ns measure-m pa2-m measure-wide-l pa0-l mr-auto ml-auto">
+    <heading>
+      <h3 class="f1">{{ .Title }}&nbsp;<a href="{{ .Site.BaseURL }}" class="back emojisymbol o-30 glow no-underline"
+          title="{{ .Site.BaseURL }}"></a></h3><!-- {{ .Site.BaseURL | lower | urlize }} -->
+      {{ partial "share" . }}
+    </heading>
+    <!-- .Content -->
+    {{ block "content" . }}
+      {{ partial "content.html" . }}
+    {{ end  }}
+    </article>
+    {{ partial "footer" . }}
+</body>
+</html>

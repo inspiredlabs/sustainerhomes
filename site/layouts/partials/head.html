@@ -1,34 +1,176 @@
+<!doctype html>
+<html lang='{{ $.Site.LanguageCode | default "en-gb" }}'
+class='w-100 h-100 touch-manipulation'><!-- https://www.bram.us/2016/05/02/prevent-overscroll-bounce-in-ios-mobilesafari-pure-css/ -->
+<!-- {{/* you missed the dot! https://discourse.gohugo.io/t/ishome-is-false-on-homepage-for-footer-only/19996/2 */}} -->
+<!-- {{/* slightly ridiculous logic: https://discourse.gohugo.io/t/meta-description-lists-and-static-pages/2667 */}} -->
 <head>
+  <meta charset='utf-8'>
+  <meta http-equiv='x-ua-compatible' content='IE=edge,chrome=1'>
+  <meta name='viewport' content='width=device-width, minimum-scale=1.0, shrink-to-fit=no'><!-- maximum-scale=1.0, -->
+  <meta name='mobile-web-app-capable' content='yes'>
+  <meta name='apple-mobile-web-app-capable' content='yes'>
 
-  <title>{{ .Title }} | {{ $.Site.Title }}</title>
-
-  {{ $stylesheet := .Site.Data.webpack.main }}
-  {{ with $stylesheet.css }}
-    <link href="{{ relURL . }}" rel="stylesheet">
+  {{ if (isset .Site.Params "mobile") }}
+  <meta name='apple-mobile-web-app-title' content='{{ $mobile := .Site.Params.mobile }}{{ truncate 11 $mobile }}' />
+  <!-- {{/* slicestr .Site.Params.mobile 0 11 */}}&hellip; -->
   {{ end }}
 
-	<meta charset="utf-8">
-	<meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <base href="{{ if getenv "CONTEXT" }}{{ cond (eq "production" (getenv "CONTEXT")) (getenv "URL") (getenv "DEPLOY_PRIME_URL") }}{{ else }}{{ $.Site.BaseURL }}{{ end }}">
+  <!-- https://discourse.gohugo.io/t/a-better-way-to-write-this-conditional-logic-solved/11936 -->
+  <!-- Public `[params]` in `config.toml` stored as: {{ .Site.Params.Foo }} or {{ .Site.Params.foo }}: https://discourse.gohugo.io/t/variables-not-pulled-from-config-file/1455/10 -->
+  <title>{{ if .IsHome }}{{ .Site.Title }} {{ if .Site.Params.jobtitle }}{{ .Site.Params.jobtitle }}{{end}}
+  {{- else }}{{ .Title }} {{ .Params.subtitle }} | {{ .Site.Title }}{{end -}}</title>
 
-	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,700" rel="stylesheet">
+  <!--
+  {{/*with .Params.jobtitle }}{{.}}{{end*/}}
+  {{/* .Permalink }}, 1:{{ $title := .LinkTitle }},2:{{ .Param $title */}} -->
+  <meta name='robots' content='noodp' /><!-- `index, follow, noodp` https://beginnersbook.com/2013/01/meta-robots-tag-noindex-nofollow-noarchive-noodp-noydir/ -->
+  <!-- <meta name="description" content='{{/* .Description | default .Site.Params.SiteDescription */}}'> -->
+  {{ if (isset .Site.Params "description") }}
+  <meta name='description'content='{{ $serp := .Site.Params.Description }}{{ truncate 160 $serp }}' />
+  <meta name='serp-length' content='{{ .Site.Params.Description | countrunes }}' />
+  {{ end }}
+  <meta name='canonical' href='{{- if (isset .Site.Params "canonical") }}{{ .Site.Params.canonical }}{{ else }}{{ .Site.BaseURL | absURL }}{{ end -}}' /><!-- https://alessandroronca.netlify.com/ -->
 
-	<!-- Favicons -->
-	<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
-	<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
-	<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
-	<link rel="manifest" href="/manifest.json">
-	<link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#ff4400">
-	<meta name="theme-color" content="#fff">
+  <!--script>/*
+  <!-- <link rel='manifest' href='/site.webmanifest'/> -- >
+  <link rel='mask-icon' href='{{ .Site.BaseURL }}images/favicon.svg' color='white'>
+  <!-- https://developer.yoast.com/safari-pinned-tab-icon-mask-icon/ -- >
+  <meta name='msapplication-TileColor' content='#eee'>
+  <!-- <meta name='msapplication-TileImage' content='favicon.png'> -- >
+  <meta name='theme-color' content='#eee'>
+  <!-- <link rel='alternate' href='/index.xml' type='application/rss+xml' title='{{ .Site.Title }}'> -- >
+  <!-- <link rel='feed' href='/index.xml' type='application/rss+xml' title='{{ .Site.Title }}'> -- >
+  */</script-->
+  <link rel='shortcut icon' type='image/x-icon' href='{{ .Site.BaseURL | absURL }}{{ .Site.Params.logo }}' />
+  <link rel='apple-touch-icon' href='{{ .Site.BaseURL | absURL }}{{ .Site.Params.logo }}'>
+  <link rel='icon' type='image/png' href='{{ .Site.BaseURL | absURL }}{{ .Site.Params.logo }}'>
+  <link rel='icon' type='image/icon' href='{{ .Site.BaseURL | absURL }}{{ .Site.Params.icon }}'>
+  <link rel='mask-icon' href='{{ .Site.BaseURL | absURL }}{{ .Site.Params.mask }}' color='white'>
+  <!-- https://developer.yoast.com/safari-pinned-tab-icon-mask-icon/ -->
+  <meta name='msapplication-TileColor' content='#002147'><!-- .oxford -->
+  <meta name=theme-color content='#002147'>
 
-	<!-- Open Graph -->
-	<meta property="og:type" content="business.business">
-	<meta property="og:title" content="Kaldi | Great coffee with a conscience">
-	<meta property="og:url" content="/">
-	<meta property="og:image" content="/img/og-image.jpg">
+  <!-- The search engine whisperer -->
+  <!-- Twitter: summary|photo|video, a *canonical* link -->
+
+  {{/* template "_internal/twitter_cards.html" . */}}
+  <!--
+  <meta name="twitter:url" content="{{ .Site.BaseURL }}/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@{{ .Site.Author.twitter }}" />
+  <meta name="twitter:title" content="{{ .Site.Title }} | {{ .Site.Params.SiteDescription }}" />{{/* .Description */}}
+  <meta name="twitter:creator" content="@{{ .Site.Author.twitter }}" />
+  <meta name="twitter:description" content="{{ .Site.Params.Description }}" />{{/* .Description */}}
+  <meta name="twitter:image" content="{{ .Site.Author.image }}" />{{/* .Site.Author.image | absURL */}}
+  -->
+  <!-- <meta name="twitter:image:src" content="{{ .Site.Author.image }}" />{{/* .Site.Author.image | absURL */}} -->
+  <!-- Originally from: ? -->
+  {{- partial "seo.html" . -}}
+  <!-- Open Graph, Facebook needs: context, no branding! Optional `Locale`. -->
+  <!--meta property="og:site_name" content="InstantWebapp" /-->
+  <!-- Mandetory: `Type` website | article | blog = LIKE! (more: neilpatel.com/blog/open-graph-meta-tags/). -->
+  <meta property="og:author" content="{{ .Site.Author.name }}" />
+  <meta property="og:type" content="{{ if (isset .Params "like") }}{{ .Params.like }}{{else}}article{{ end }}" />
+  <meta property="og:site_name" content="{{ .Site.Title }}" />
+  <meta property="og:title" content="{{ .Site.Title }} | {{ .Site.Params.SiteDescription }}" />
+  {{ if (isset .Params "description") }}
+  <meta property="og:description" content="{{ .Site.Params.Description }}" />{{/* .Params.description }}
+  {{ if (isset .Site.Params "description") }}{{ .Site.Params.Description }}{{ end */}}{{ end }}
+  <meta property="og:url" content="{{ .Permalink }}" />{{ if (isset .Params "LanguageCode") }}
+  <meta property="og:locale" content="{{ .Params.LanguageCode }}" />{{ else}}
+  <meta property="og:locale"
+    content="{{ if .Params.LanguageCode }}{{ .Params.LanguageCode }}{{ else }}{{ $.Site.LanguageCode | default "en-gb" }}{{ end }}" />
+  {{ end }}
+  <meta property="og:image" content="{{ range $i, $e := .Params.images }}{{ if $i }}, {{ end }}{{ $e }}{{ end }}" />
+  <meta property="og:image:secure_url"
+    content="{{ range $i, $e := .Params.images }}{{ if $i }}, {{ end }}{{ $e }}{{ end }}" />
+
+
+
+<!--script>/*
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="images/profile.png" />
+  <meta name="twitter:title" content="Alessandro Ronca | 1 on 1 Ice Coach | Wim Hof Method in Italian" />
+  <meta name="twitter:description"
+    content="...how do the three pillars of the WHM provide you with a life upgrade? Find out from one of only three facilitators from Italy." />
+  <script type="application/ld+json">
+    {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "url": "https://alessandroronca.it/",
+        "author": {
+          "@type": "person",
+          "name": "Alessandro Ronca"
+        },
+
+      "description": "Scientific Director PeR, Training Facilitator and 1-on-1 Instructor of the WHM (Wim Hof Method). There are only three WHM Instructors from Italy.",
+      "keywords": "1-on-1 Instructor, 1-on-1 Ice Coach,
+      Sustainability, positive net impact, energy techologies, Fairtech Revolution, Artisan, Polymath, Construction Management, Diving Instructor, PeR, Parco dell’ Energia Rinnovabile,
+      sustainability research center,
+      Frazione Frattuccia, Amelia, Guardea TR, Terni, Umbria, Italy",
+      "image" : "images/profile.png",
+      "thumbnailUrl": "favicon.png",
+      "license": "©2019, InspiredLabs.co.uk",
+      "name": "Alessandro Ronca | 1 on 1 Ice Coach | Wim Hof Method in Italian"
+    }
+  </script>
+  <meta name="homepage" content="https://alessandroronca.it/" />
+  <meta name="biography"
+    content="Scientific Director PeR, Training Facilitator and 1-on-1 Instructor of the WHM (Wim Hof Method). There are only three WHM Instructors from Italy." />
+  <meta name="keywords" content="1-on-1 Instructor, 1-on-1 Ice Coach,
+      Sustainability, positive net impact, energy techologies, Fairtech Revolution, Artisan, Polymath, Construction Management, Diving Instructor, PeR, Parco dell’ Energia Rinnovabile,
+      sustainability research center,
+      Frazione Frattuccia, Amelia, Guardea TR, Terni, Umbria, Italy" />
+  <meta name="news_keywords"
+    content="Fairtech Revolution, PeR, Parco dell’ Energia Rinnovabile, Wim Hof Method in Italian" />
+  <meta name="copyright" content="©2019, Scott Phillips" />
+
+  <meta property="og:author" content="Alessandro Ronca" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Alessandro Ronca" />
+  <meta property="og:title" content="Alessandro Ronca | 1 on 1 Ice Coach | Wim Hof Method in Italian" />
+  <meta property="og:description"
+    content="One of only three WHM Instructors from Italy. Training Facilitator, 1-on-1 Instructor of WHM and Scientific Director PeR." />
+
+  <meta property="og:url" content="https://inspiredlabs.co.uk/alessandroronca.it/" />
+  <!-- <meta property="og:url" content="https://alessandroronca.it/" /> -- >
+  <meta property="og:locale" content="en" />
+  <meta property="og:locale:alternate" content="it" />
+  <meta property="og:image" content="https://inspiredlabs.co.uk/alessandroronca.it/images/profile.png" />
+  <meta property="og:image:secure_url" content="https://inspiredlabs.co.uk/alessandroronca.it/images/profile.png" />
+
+  <meta property="og:author" content="Alessandro Ronca" />
+  <meta property="og:type" content="company" />
+  <meta property="og:site_name" content="AlessandroRonca.it" />
+  <meta property="og:title" content="Facilitator, 1 on 1 Ice Coach, Wim Hof Method in Italy" />
+  <meta property="og:description"
+    content="One of only three WHM Instructors from Italy. Training Facilitator, 1-on-1 Instructor of WHM and Scientific Director PeR." />
+  <meta property="og:url" content="https://inspiredlabs.co.uk/alessandroronca.it/" />
+  <meta property="og:locale" content="en" />
+  <meta property="og:image" content="https://inspiredlabs.co.uk/alessandroronca.it/images/profile.png" />
+  <meta property="og:image:secure_url" content="https://inspiredlabs.co.uk/alessandroronca.it/images/profile.png" />
+  <!-- <link rel='stylesheet' href='https://instantwebapp.netlify.com/css/tachyon.shower.css'> -- >*/</script-->
+
+
+  <!-- Tachyon Shower -->
+  <!-- https://github.com/FullHuman/purgecss -->
+  <!-- Bud Par: https://discourse.gohugo.io/t/optimizing-css-remove-unused/18863/4 -->
+  <!-- https://discourse.gohugo.io/t/hugo-inline-css-optimization-for-google-pagespeed/6032/13 -->
+  <!-- regex CSS comments: http://blog.moagrius.com/javascript/javascript-regexp-to-remove-comments/ -->
+  <!-- TODO: Using {{/* $style | toCSS | minify */}}: https://youtu.be/NKLwuZIkReg?t=1144 -->
+  <!-- TODO: Define {{/* define "content" }}{{ thing:css; }}{{ end */}}?: https://youtu.be/-PBcvyytuMg?t=693 -->
+
+  <!-- regex101.com PCRE & backticks not quotes: https://discourse.gohugo.io/t/replacere-gives-syntax-error/22624/2 -->
+  {{ $style := resources.Get "css/tmp.css" | minify }}
+  <style>{{ $style.Content | replaceRE `\/\*(.*)\*\/` `$style` | safeCSS }}</style>
+
+  <!--link rel="stylesheet" href="{{/* if .IsHome }}{{ .Site.BaseURL }}{{ else }} {{ .Site.BaseURL }}/{{ end */}}css/tmp.css" /-->
+  <script>/*{{/* <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/tmp.css" />*/}}*/</script>
+  <!-- https://instantwebapp.netlify.com/css/tachyon.shower.css -->
+
+  <!-- So I start using relURL with a path to the resources not starting with / now …relURL "vendor/cool.css" and not relURL “/vendor/cool.css” since this works (in my use cases), from: https://discourse.gohugo.io/t/baseurl-path-subdir-sometimes-ignored-by-relurl-relURL/11512/9 -->
 
   {{ if .IsHome }}
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <!--link rel="stylesheet" href="{{ .Site.BaseURL | absURL }}css/flickity.css"><!-- flickity.min.css -->
   {{ end }}
-</head>
+  {{/* partial "add-to-tachyon-shower" . */}}

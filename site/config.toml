@@ -2,6 +2,7 @@ baseurl = "sustainerhomes.netlify.com/" #baseurl = "./"
 languageCode = "en-gb"
 languageLang = "en"
 title = ""
+copyright = ""
 
 # RSS, categories and tags disabled for an easy start
 # See configuration options for more details:

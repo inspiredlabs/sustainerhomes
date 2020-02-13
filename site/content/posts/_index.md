@@ -2,16 +2,21 @@
 region: en
 
 weight: 1
-name: coach
-title: Dr. Alessandro Ronca
-subtitle: 1-on-1 Ice Coach & Training Facilitator
+name: home
+title: Sustainer Homes
+subtitle: Modern technology meets the oldest building material
 icon: info
 
+image:
+imageRetina:
+backgroundPos: 0 0
+
+---
+<!--
 image: images/ale-header-1x.jpg
 imageRetina: images/ale-header-2x.jpg
 backgroundPos: 0 60%
-
----
+-->
 
 <!--title: Alessandro Ronca-->
 <!--subtitle: Training Facilitator & Certified Wim Hof Method Instructor-->

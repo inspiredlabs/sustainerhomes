@@ -6,7 +6,7 @@ title: Design and Realisation
 subtitle: Four steps to Sustainer Home ownership
 ---
 
-## Design and Realisation ([NL](https://www.sustainerhomes.nl/concept/))
+##  [Ontwerp & realisatie, NL](https://www.sustainerhomes.nl/stappenplan/)
 ### Four steps to Sustainer Home ownership
 
 There are four steps to Sustainer Home ownership: Orientation, Design, Contracts and Production.

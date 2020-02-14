@@ -7,33 +7,34 @@ title: Vacancies
 
 ---
 
-## Building can be much better <!--Sustainer Homes-->
+## [Vacatures, NL](https://www.sustainerhomes.nl/over/#vacatures)
 
-Established to make architecture more flexible, accessible and  sustainable... Sustainer Homes believes building can be much better.
+### Building can be much better <!--Sustainer Homes-->
 
-The idea came into being on a roof in 2014. Solar panels were being installed and sustainable building was becoming accessible to everyone. 
+Established to make architecture more flexible, accessible and  sustainable... Sustainer Homes believes _building can be much better_.
 
-Sustainer Homes was concocted at Startupbootcamp, by the four founders... Gert van Vugt (CEO), Jacintha Baas (COO), Sol van Kempen (Architect) and Wolf Bierens (CTO).
+The idea came into being as Solar panels were being installed on a roof in 2014 with the aim of making sustainable builds accessible to everyone. 
+
+Sustainer Homes was concocted at Startupbootcamp, by the four founders... [Gert van Vugt](https://www.sustainerhomes.nl/over/) (CEO), [Jacintha Baas](https://www.sustainerhomes.nl/over/) (COO), [Sol van Kempen](https://www.sustainerhomes.nl/over/) (Architect) and [Wolf Bierens](https://www.sustainerhomes.nl/over/) (CTO).
 
 After working out the idea, their first investor helped produced a prototype.
 
 Now, we make it possible to build everything from business premises to holiday homes. And, we want to make sustainable construction accessible to the broader market.
 
-### Internships <!--Vacancies-->
+### Vacancies <!--Vacancies-->
 
-Sustainer Homes vacatures
+Do you want to work with us? These are our available positions.
 
-Wil je aan de slag bij Sustainer Homes? Je vindt hieronder wat we aan vacatures en stageplekken open hebben staan.
+**Sorry, there are no vacancies.**
 
-Vacatures
+#### Internships
 
-Momenteel zijn er geen vacatures.
+[Stageplekken, NL](https://www.sustainerhomes.nl/over/#vacatures)
 
-Stageplekken / Internships
+We are looking for Architecture Interns to strengthen our team.
 
-We zijn op zoek naar interns om ons team van architecten te versterken in 2019
-
-- **Technical Designer** (Nederlands/English, stage/internship)
+- **Technical Designer** (Nederlands/English, internship)
 	- Rhino
 	- Grasshopper
 	- C#
+	- [More information](https://www.sustainerhomes.nl/sustainer-homes-is-looking-for-interns/)

@@ -7,7 +7,7 @@ title: Projects
 
 ---
 
-## Projects ([NL](https://www.sustainerhomes.nl/projecten/))
+## [Projecten, NL](https://www.sustainerhomes.nl/veelgestelde-vragen/)
 
 Below is a portfolio of beautiful projects delivered for individuals, companies and developers.
 

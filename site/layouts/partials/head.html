@@ -161,7 +161,7 @@ class='w-100 h-100 touch-manipulation'><!-- https://www.bram.us/2016/05/02/preve
   <!-- TODO: Define {{/* define "content" }}{{ thing:css; }}{{ end */}}?: https://youtu.be/-PBcvyytuMg?t=693 -->
 
   <!-- regex101.com PCRE & backticks not quotes: https://discourse.gohugo.io/t/replacere-gives-syntax-error/22624/2 -->
-  {{ $style := resources.Get "css/tmp.css" | minify }}
+  {{ $style := resources.Get "css/uncssonline.css" | minify }}
   <style>{{ $style.Content | replaceRE `\/\*(.*)\*\/` `$style` | safeCSS }}</style>
 
   <!--link rel="stylesheet" href="{{/* if .IsHome }}{{ .Site.BaseURL }}{{ else }} {{ .Site.BaseURL }}/{{ end */}}css/tmp.css" /-->
@@ -170,9 +170,9 @@ class='w-100 h-100 touch-manipulation'><!-- https://www.bram.us/2016/05/02/preve
 
   <!-- So I start using relURL with a path to the resources not starting with / now …relURL "vendor/cool.css" and not relURL “/vendor/cool.css” since this works (in my use cases), from: https://discourse.gohugo.io/t/baseurl-path-subdir-sometimes-ignored-by-relurl-relURL/11512/9 -->
 
-  {{ if .IsHome }}
+  {{/* if .IsHome }}
   <!--link rel="stylesheet" href="{{ .Site.BaseURL | absURL }}css/flickity.css"><!-- flickity.min.css -->
-  {{ end }}
+  {{ end */}}
   {{/* partial "add-to-tachyon-shower" . */}}
   <style>
     /* MediumSeaGreen: hexcolor16.com/3cb371 */

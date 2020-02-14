@@ -9,7 +9,7 @@ icon: info
 
 ---
 
-## Frequently Asked Questions ([NL](https://www.sustainerhomes.nl/veelgestelde-vragen/))
+## [Veelgestelde vragen, NL](https://www.sustainerhomes.nl/veelgestelde-vragen/)
 
 Do you want to know more on finding a plot? What's possible regarding financing? Do you other questions? Here you can review popular questions about location, finance, and design. Question not listed? Get in touch: info@sustainerhomes.nl or call us [+31 030 207 2160](tel:+310302072160).
 

@@ -5,7 +5,8 @@ title: A design system
 subtitle:
 ---
 
-### A design system ([NL](https://www.sustainerhomes.nl/concept/#een-slim-systeem-voor-jouw-ontwerp-op-maat))
+## [Een slim systeem voor jouw ontwerp op maat, NL](https://www.sustainerhomes.nl/concept/#een-slim-systeem-voor-jouw-ontwerp-op-maat)
+
 Precise housing requirements rarely occur twice. Similarly, industrial techniques improve quality, reduce waste, cost and the need to recycle. To solve the contradiction between bespoke production and large scale manufacture... we developed our own design system, inspired by Lego.
 
 This way, we can create unlimited numbers of designs with a limited number of components.

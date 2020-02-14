@@ -5,7 +5,7 @@ title: Concept
 subtitle:
 ---
 
-## Concept ([NL](https://www.sustainerhomes.nl/concept/))
+## [Concept, NL](https://www.sustainerhomes.nl/concept/)
 ### Design within reach
 
 Sustainer Homes, believes modern techniques, make realising your own sustainable design, simple. Which is ideal – because traditional construction leaves a lot to be desired. If you have plans for your own sustainable dream home – here's some starting points:

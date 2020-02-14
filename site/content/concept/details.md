@@ -5,7 +5,7 @@ title: Our obsession with details
 subtitle:
 ---
 
-## Our obsession with details ([NL](https://www.sustainerhomes.nl/concept/#obsessie-met-details))
+## [Obsessie met details, NL](https://www.sustainerhomes.nl/concept/#obsessie-met-details)
 
 Once we started designing, every detail became important. We hope you share our obsession with details... reflected in a scientific approach to sustainability, process optimisation and architectural detail. Examples:
 

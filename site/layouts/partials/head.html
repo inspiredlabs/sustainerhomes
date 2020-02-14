@@ -72,7 +72,7 @@ class='w-100 h-100 touch-manipulation'><!-- https://www.bram.us/2016/05/02/preve
   <meta property="og:author" content="{{ .Site.Author.name }}" />
   <meta property="og:type" content="{{ if (isset .Params "like") }}{{ .Params.like }}{{else}}article{{ end }}" />
   <meta property="og:site_name" content="{{ .Site.Title }}" />
-  <meta property="og:title" content="{{ .Site.Title }} | {{ .Site.SiteDescription }}" />
+  <meta property="og:title" content="{{ .Site.Title }} | {{ .Site.Params.SiteDescription }}" />
   {{ if (isset .Params "description") }}
   <meta property="og:description" content="{{ .Site.Params.Description }}" />{{/* .Params.description }}
   {{ if (isset .Site.Params "description") }}{{ .Site.Params.Description }}{{ end */}}{{ end }}
@@ -165,7 +165,7 @@ class='w-100 h-100 touch-manipulation'><!-- https://www.bram.us/2016/05/02/preve
   <style>{{ $style.Content | replaceRE `\/\*(.*)\*\/` `$style` | safeCSS }}</style>
 
   <!--link rel="stylesheet" href="{{/* if .IsHome }}{{ .Site.BaseURL }}{{ else }} {{ .Site.BaseURL }}/{{ end */}}css/tmp.css" /-->
-  <!--script>/*{{/* <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/tmp.css" />*/}}*/</script-->
+  <!--script>/*{{/* <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/tmp.css" />*/}}*/</script>
   <!-- https://instantwebapp.netlify.com/css/tachyon.shower.css -->
 
   <!-- So I start using relURL with a path to the resources not starting with / now …relURL "vendor/cool.css" and not relURL “/vendor/cool.css” since this works (in my use cases), from: https://discourse.gohugo.io/t/baseurl-path-subdir-sometimes-ignored-by-relurl-relURL/11512/9 -->

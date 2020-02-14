@@ -4,7 +4,6 @@ draft: false
 region: en
 weight: 1
 title: Introduction
-subtitle: Modern technology meets the oldest building material
 
 ---
 
@@ -19,3 +18,9 @@ Sustainer Homes fulfil the dream of sustainable ideals and circular-construction
 Modern methods make both a bespoke architectural design with prefabricated, precision manufacture possible. Sustainer Homes set the standard for ecological performance using uncompromising, high quality materials.
 
 Learn more about [our approach](https://www.sustainerhomes.nl/concept/).
+
+### Your dream home
+
+We turn your ideas into a sustainable, dream home. We facilitate the entire process – from initial sketch, through to finding a professional contractor and handing over the keys.
+
+Learn about [our process](https://www.sustainerhomes.nl/stappenplan/).

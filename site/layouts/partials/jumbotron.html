@@ -28,7 +28,7 @@
           pt6-l ph4-l
           text-shadow measure-narrow lh-title">
       
-      {{ if eq .Section "posts" }}
+      {{ if eq .Section "home" }}
       <h1 class="pa0 ma0">
         <span
           class="tracked tracked-mega-ns tracked-mega-m tracked-mega-l f3 f2-ns f2-m f1-l mb0 ts1-dark-gray ttu">
@@ -46,7 +46,7 @@
       </h1>
       {{ else }}
         <h2 class="pa0 ma0">
-          <span class="tracked tracked-mega-ns tracked-mega-m tracked-mega-l f3 f2-ns f2-m f1-l mb0 ts1-dark-gray ">{{- if .Params.title -}}{{- .Params.title -}}{{- end -}}</span>
+          <span class="tracked tracked-mega-ns tracked-mega-m tracked-mega-l f3 f2-ns f2-m f1-l mb0 ts1-dark-gray ttu">{{- if .Params.title -}}{{- .Params.title -}}{{- end -}}</span>
           <span class="db f4 f3-ns fw5 ts1-dark-gray">{{- if .Params.subtitle -}}{{- .Params.subtitle -}}{{- end -}}</span>
         </h2>
       {{ end }}

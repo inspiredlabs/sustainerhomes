@@ -3,8 +3,8 @@ region: en
 
 weight: 2
 name: Projects
-title: Sustainer Homes
-subtitle: 
+title: Portfolio
+subtitle: Cradle-2-Cradle Construction Examples
 icon: info
 
 image:

@@ -41,14 +41,14 @@ class='w-100 h-100 touch-manipulation'><!-- https://www.bram.us/2016/05/02/preve
   <!-- <link rel='alternate' href='/index.xml' type='application/rss+xml' title='{{ .Site.Title }}'> -- >
   <!-- <link rel='feed' href='/index.xml' type='application/rss+xml' title='{{ .Site.Title }}'> -- >
   */</script-->
-  <link rel='shortcut icon' type='image/x-icon' href='{{ .Site.BaseURL | absURL }}{{ .Site.Params.logo }}' />
-  <link rel='apple-touch-icon' href='{{ .Site.BaseURL | absURL }}{{ .Site.Params.logo }}'>
-  <link rel='icon' type='image/png' href='{{ .Site.BaseURL | absURL }}{{ .Site.Params.logo }}'>
-  <link rel='icon' type='image/icon' href='{{ .Site.BaseURL | absURL }}{{ .Site.Params.icon }}'>
-  <link rel='mask-icon' href='{{ .Site.BaseURL | absURL }}{{ .Site.Params.mask }}' color='white'>
+  <link rel='shortcut icon' type='image/x-icon' href='{{ .Site.Params.logo }}' />
+  <link rel='apple-touch-icon' href='{{ .Site.Params.logo }}'>
+  <link rel='icon' type='image/png' href='{{ .Site.Params.logo }}'>
+  <link rel='icon' type='image/icon' href='{{ .Site.Params.icon }}'>
+  <link rel='mask-icon' href='{{ .Site.Params.mask }}' color='white'>
   <!-- https://developer.yoast.com/safari-pinned-tab-icon-mask-icon/ -->
-  <meta name='msapplication-TileColor' content='#002147'><!-- .oxford -->
-  <meta name=theme-color content='#002147'>
+  <meta name='msapplication-TileColor' content='#27ad5f'><!-- .sustainer-homes -->
+  <meta name=theme-color content='#27ad5f'>
 
   <!-- The search engine whisperer -->
   <!-- Twitter: summary|photo|video, a *canonical* link -->
@@ -72,7 +72,7 @@ class='w-100 h-100 touch-manipulation'><!-- https://www.bram.us/2016/05/02/preve
   <meta property="og:author" content="{{ .Site.Author.name }}" />
   <meta property="og:type" content="{{ if (isset .Params "like") }}{{ .Params.like }}{{else}}article{{ end }}" />
   <meta property="og:site_name" content="{{ .Site.Title }}" />
-  <meta property="og:title" content="{{ .Site.Title }} | {{ .Site.Params.SiteDescription }}" />
+  <meta property="og:title" content="{{ .Site.Title }} | {{ .Site.SiteDescription }}" />
   {{ if (isset .Params "description") }}
   <meta property="og:description" content="{{ .Site.Params.Description }}" />{{/* .Params.description }}
   {{ if (isset .Site.Params "description") }}{{ .Site.Params.Description }}{{ end */}}{{ end }}
@@ -165,7 +165,7 @@ class='w-100 h-100 touch-manipulation'><!-- https://www.bram.us/2016/05/02/preve
   <style>{{ $style.Content | replaceRE `\/\*(.*)\*\/` `$style` | safeCSS }}</style>
 
   <!--link rel="stylesheet" href="{{/* if .IsHome }}{{ .Site.BaseURL }}{{ else }} {{ .Site.BaseURL }}/{{ end */}}css/tmp.css" /-->
-  <script>/*{{/* <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/tmp.css" />*/}}*/</script>
+  <!--script>/*{{/* <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/tmp.css" />*/}}*/</script-->
   <!-- https://instantwebapp.netlify.com/css/tachyon.shower.css -->
 
   <!-- So I start using relURL with a path to the resources not starting with / now …relURL "vendor/cool.css" and not relURL “/vendor/cool.css” since this works (in my use cases), from: https://discourse.gohugo.io/t/baseurl-path-subdir-sometimes-ignored-by-relurl-relURL/11512/9 -->

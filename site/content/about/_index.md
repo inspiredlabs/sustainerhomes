@@ -1,10 +1,10 @@
 ---
 region: en
-darft: true
-weight: 8
-name: blog
-title: Sustainer Homes' blog
-subtitle: Our blog
+
+weight: 6
+name: home
+title: Sustainer Homes
+subtitle: About us
 icon: info
 
 image:

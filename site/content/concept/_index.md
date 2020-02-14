@@ -1,7 +1,7 @@
 ---
 region: en
 
-weight: 2
+weight: 3
 name: concept
 title: Concept
 subtitle: Design within reach

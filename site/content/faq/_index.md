@@ -1,7 +1,7 @@
 ---
 region: en
 
-weight: 2
+weight: 5
 name: FAQ
 title: Frequently Asked Questions
 subtitle: Want to know more?

@@ -2,7 +2,7 @@
 
 draft: false
 region: en
-weight: 9
+weight: 3
 title: Vacancies
 
 ---

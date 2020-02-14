@@ -1,10 +1,22 @@
+enableRobotsTXT = true
 baseurl = "sustainerhomes.netlify.com/" #baseurl = "./"
 languageCode = "en-gb"
 languageLang = "en"
-title = ""
-copyright = ""
+title = "Sustainer Homes"
+copyright = "https://inspiredlabs.co.uk" #© 2020&nbsp;{{ .Site.Params.author  }} (if lang != it-it then "di") | Web {{ .Site.Copyright }}
 
 # RSS, categories and tags disabled for an easy start
 # See configuration options for more details:
 # https://gohugo.io/getting-started/configuration/#toml-configuration
 disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
+
+[params] #Public `[params]` in `config.toml` stored as: {{ .Site.Params.Foo }} or {{ .Site.Params.foo }}: https://discourse.gohugo.io/t/variables-not-pulled-from-config-file/1455/10
+  canonical = "https://sustainerhomes.netlify.com/"
+  logo = "favicon.png" #{{ with .Site.Params "logo" }}{{ . }}{{ end }}
+  icon = "favicon.ico.png" #{{ with .Site.Params "logoIcon" }}{{ . }}{{ end }}
+  mask = "favicon.svg.png" #{{ with .Site.Params "logoMask" }}{{ . }}{{ end }}
+  description = """Sustainer Homes fulfil the dream of sustainable ideals and  circular-construction creating villas, homes and office spaces throughout the Netherlands."""
+  mobile = "Sustainer Homes" #12345678911
+  author = "Sustainer Homes" #authorlink
+  authorlink = "https://www.sustainerhomes.nl/over/"
+  keywords = ["sustainable", "circular construction", "Netherlands", "lvl", "Laminated Veneer Lumber", "Startupbootcamp" ]

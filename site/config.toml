@@ -1,5 +1,5 @@
 enableRobotsTXT = true
-baseurl = "sustainerhomes.netlify.com/" #baseurl = "./"
+baseurl = "./" #baseurl = "sustainerhomes.netlify.com/"
 languageCode = "en-gb"
 languageLang = "en"
 title = "Sustainer Homes"

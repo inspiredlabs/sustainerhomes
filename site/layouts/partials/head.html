@@ -41,7 +41,7 @@ class='w-100 h-100 touch-manipulation'><!-- https://www.bram.us/2016/05/02/preve
   <!-- <link rel='alternate' href='/index.xml' type='application/rss+xml' title='{{ .Site.Title }}'> -- >
   <!-- <link rel='feed' href='/index.xml' type='application/rss+xml' title='{{ .Site.Title }}'> -- >
   */</script-->
-  <link rel='shortcut icon' type='image/x-icon' href='{{ .Site.Params.logo | absURL }}' />
+  <link rel='shortcut icon' type='image/x-icon' href='{{ .Site.Params.logo | relURL }}' />
   <link rel='apple-touch-icon' href='{{ .Site.Params.logo | relURL }}'>
   <link rel='icon' type='image/png' href='{{ .Site.Params.logo | relURL }}'>
   <link rel='icon' type='image/icon' href='{{ .Site.Params.icon | relURL }}'>

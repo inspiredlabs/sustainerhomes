@@ -3,28 +3,28 @@
 <ul class="list pl0 tracked tracked-m tracked-l ttu mb3 b system no-clutter f8 f6-m f7-l"><!-- f8 f7-ns f5-m f4-l -->
   <li class="silver  dn dib-ns">Share:</li>
   <li class=" dib "><a
-      href="https://www.facebook.com/sharer/sharer.php?u={{ .RelPermalink | absURL | safeJS }}&amp;quote={{ .Summary | safeJS }}"
+      href="https://www.facebook.com/sharer/sharer.php?u={{ .RelPermalink | safeJS }}&amp;quote={{ .Summary | safeJS }}"
       target="_blank" title="Share on Facebook"
       class="ph2 pv2 ph2-ns ph2-m ph3-l pv2-ns hover-white white-50 br1 link pointer bg-facebook">facebook</a></li>
-  <li class=" dib "><a href="https://twitter.com/intent/tweet?source={{ .RelPermalink | absURL | safeJS }}&amp;text={{ .Summary | safeJS }}"
+  <li class=" dib "><a href="https://twitter.com/intent/tweet?source={{ .RelPermalink | safeJS }}&amp;text={{ .Summary | safeJS }}"
       target="_blank" title="Tweet this"
       class="ph2 pv2 ph2-ns ph2-m ph3-l pv2-ns hover-white white-50 br1 link pointer bg-twitter">twitter</a></li><!-- &amp;via={{- range .Sections.ByWeight -}}{{- .Params.name | lower | urlize -}}{{- end -}} -->
-  <!--li class=" dib "><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{ .RelPermalink | absURL | safeJS }}&amp;title={{ .Summary | safeJS }}&amp;summary=Alessandro%20Ronca%20is%20a%20multi-disciplined%20Training%20Facilitator%20with%20experience%20guiding%20people%20in%20energy%20conservation%2C%20sustainable%20technologies%2C%20and%20seizing%20life-changing%20opportunities.&amp;source={{ .RelPermalink | absURL | safeJS }}"
+  <!--li class=" dib "><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{ .RelPermalink | safeJS }}&amp;title={{ .Summary | safeJS }}&amp;summary=Alessandro%20Ronca%20is%20a%20multi-disciplined%20Training%20Facilitator%20with%20experience%20guiding%20people%20in%20energy%20conservation%2C%20sustainable%20technologies%2C%20and%20seizing%20life-changing%20opportunities.&amp;source={{ .RelPermalink | safeJS }}"
       target="_blank" title="Share on LinkedIn"
       class="ph2 pv2 ph2-ns ph2-m ph3-l pv2-ns hover-white white-50 br1 link pointer bg-linkedin">LinkedIn</a></li-->
-  <li class=" dib "><a href="mailto:?subject={{ .Summary | safeJS }}&amp;body={{ .Summary | safeJS }}{{ .RelPermalink | absURL | safeJS }}"
-      target="_blank" title="email this"
+  <li class=" dib "><a href="mailto:?subject={{ .Title | safeJS }}&amp;body={{ .Summary | safeJS }}{{ .RelPermalink | safeJS }}"
+      target="_blank" title="Send this"
       class="ph2 pv2 ph2-ns ph2-m ph3-l pv2-ns hover-white white-50 br1 link pointer bg-pm-blue-dark">email</a></li>
-  <!--li class=" dib "><a href="http://pinterest.com/pin/create/button/?url={{ .RelPermalink | absURL | safeJS }}&amp;media=https://inspiredlabs.co.uk/{{ .RelPermalink | absURL | safeJS }}/images/ale-header-1x.jpg&amp;description=Alessandro%20Ronca%20is%20a%20multi-disciplined%20Training%20Facilitator%20with%20experience%20guiding%20people%20in%20energy%20conservation%2C%20sustainable%20technologies%2C%20and%20seizing%20life-changing%20opportunities."
+  <!--li class=" dib "><a href="http://pinterest.com/pin/create/button/?url={{ .RelPermalink | safeJS }}&amp;media=https://inspiredlabs.co.uk/{{ .RelPermalink | safeJS }}/images/ale-header-1x.jpg&amp;description=Alessandro%20Ronca%20is%20a%20multi-disciplined%20Training%20Facilitator%20with%20experience%20guiding%20people%20in%20energy%20conservation%2C%20sustainable%20technologies%2C%20and%20seizing%20life-changing%20opportunities."
       target="_blank" title="Pin it" class="ph2 pv2 ph2-ns ph2-m ph3-l pv2-ns hover-white white-50 br1 link pointer bg-pinterest">Pinterest</a></li-->
   <!--li class=" dib "><a class="link pointer charcoal dim no-underline"
-        href="http://www.reddit.com/submit?url={{ .RelPermalink | absURL | safeJS }}&amp;title={{ .Summary | safeJS }}"
+        href="http://www.reddit.com/submit?url={{ .RelPermalink | safeJS }}&amp;title={{ .Summary | safeJS }}"
         target="_blank" title="Submit to Reddit">Reddit</a></li-->
   <!-- li class=" dib "><a class="link pointer charcoal dim no-underline"
-        href="http://wordpress.com/press-this.php?u={{ .RelPermalink | absURL | safeJS }}&amp;quote={{ .Summary | safeJS }}&amp;s=Alessandro%20Ronca%20is%20a%20multi-disciplined%20Training%20Facilitator%20with%20experience%20guiding%20people%20in%20energy%20conservation%2C%20sustainable%20technologies%2C%20and%20seizing%20life-changing%20opportunities.&amp;i=https://inspiredlabs.co.uk/{{ .RelPermalink | absURL | safeJS }}/images/ale-header-1x.jpg"
+        href="http://wordpress.com/press-this.php?u={{ .RelPermalink | safeJS }}&amp;quote={{ .Summary | safeJS }}&amp;s=Alessandro%20Ronca%20is%20a%20multi-disciplined%20Training%20Facilitator%20with%20experience%20guiding%20people%20in%20energy%20conservation%2C%20sustainable%20technologies%2C%20and%20seizing%20life-changing%20opportunities.&amp;i=https://inspiredlabs.co.uk/{{ .RelPermalink | safeJS }}/images/ale-header-1x.jpg"
         target="_blank" title="Publish on WordPress">WordPress</a></li-->
     <li class=" dib ">
-      <!-- ph0 pv2 ph2-ns pv2-ns  --><a href="{{ .RelPermalink }}" title="{{ .Permalink | absURL | lower | urlize }}"
+      <!-- ph0 pv2 ph2-ns pv2-ns  --><a href="{{ .RelPermalink }}" title="{{ .RelPermalink | absURL | lower | urlize }}"
         class="ph2 pv2 ph2-ns ph2-m ph3-l pv2-ns hover-white white-50 br1 link pointer bg-dark-gray">Link</a></li>
   </ul>
 </aside>

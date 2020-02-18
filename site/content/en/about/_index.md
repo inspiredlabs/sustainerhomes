@@ -1,27 +1,17 @@
 ---
 region: en
 
-weight: 1
+weight: 6
 name: home
-title: En, Sustainer Homes
-subtitle: Modern technology meets the oldest building material
+title: About us
+subtitle: About Sustainer Homes
 icon: info
-
-images: [""]
 
 image:
 imageRetina:
 backgroundPos: 0 0
 
-
-
-
-
 ---
-
-<!--images: ["https://alessandroronca.netlify.com/images/tai-chi.jpg"]-->
-
-
 <!--
 image: images/ale-header-1x.jpg
 imageRetina: images/ale-header-2x.jpg

@@ -5,7 +5,7 @@
   <!--{{/* partial "svg" . */}}-->
   <!--{{/* partial "horizontalNav.html" . */}}-->
 
-<div class="carousel carousel-main vh-100 vw-100 relative z-1"><!-- https://discourse.gohugo.io/t/get-pages-from-multiple-sections-in-one-list/15271 -->
+<!--div class="carousel carousel-main vh-100 vw-100 relative z-1"> https://discourse.gohugo.io/t/get-pages-from-multiple-sections-in-one-list/15271 -->
 
 <!--
 {{/* range .Sections.ByWeight }}
@@ -18,37 +18,87 @@
 {{ end */}}
 -->
 
-  {{ range .Sections.ByWeight }}
-  <section id="{{ .Title | lower | urlize }}" class="w-100 mb4"><!-- carousel-cell h-100 scrollable overflow-y-scroll touch-scrolling w-100 -->
+{{/* https://discourse.gohugo.io/t/list-pages-of-sub-sub-folders/9436 */}}
+{{/* range .Sections.ByWeight }}
+
+{{ if eq .Section "en" }}
+<a href='#{{ .Title | lower | urlize }}' class="dark-green db o-70 glow">{{ .Title | lower | urlize }}</a>
+{{ range .Data.Pages }}
+<a href='#{{ .Title | lower | urlize }}' class="green pl3 db o-70 glow">{{ .Title | lower | urlize }}</a>
+{{ range $i, $e := .Data.Pages }}
+<a href='#{{ .Title | lower | urlize }}' class="light-green pl4 db o-70 glow">{{ .Title | lower | urlize }}</a>
+{{ end }}
+{{ end }}
+{{ end }}
+
+{{ if eq .Section "nl" }}
+<a href='#{{ .Title | lower | urlize }}' class="dark-red db o-70 glow">{{ .Title | lower | urlize }}</a>
+{{ range .Data.Pages }}
+<a href='#{{ .Title | lower | urlize }}' class="pink pl3 db o-70 glow">{{ .Title | lower | urlize }}</a>
+{{ range $i, $e := .Data.Pages }}
+<a href='#{{ .Title | lower | urlize }}' class="light-pink pl4 db o-70 glow">{{ .Title | lower | urlize }}</a>
+<!--div class="pl4 mb4">{{ partial "share" . }}</div-->
+{{ end }}
+{{ end }}
+{{ end }}
+
+{{ end */}}
+
+
+
+
+
+
+{{/* range $i, $e := .Data.Pages }}{{ end */}}
+{{/*
+  GOAL:
+  if root dir then: "jumbotron" + optional _INDEX.MD
+  if `.Data.Pages` then: "li" Main layout, in a single column
+  */}}
+
+
+
+{{/* It works! */}}
+{{ range .Sections.ByWeight }}
+
+  {{ if ne .Section "nl" }}
     {{ partial "jumbotron" . }}
     <!-- The `_index.md` is reserved for the synopsis, introduction or sign-up tiers (figure), breaking out from the main layout. -->
-    <aside class="db dark-gray athelas f5 f4-ns f3-m f3-l lh-copy measure-narrow pa4 measure-ns pa4-ns measure-m pa2-m measure-wide-l pa0-l mr-auto ml-auto">
+    <aside
+      class="db dark-gray athelas f5 f4-ns f3-m f3-l lh-copy measure-narrow pa4 measure-ns pa4-ns measure-m pa2-m measure-wide-l pa0-l mr-auto ml-auto">
       <!--h2>{{ .Title }}&nbsp;<a href="{{ .Permalink }}" class="link emojisymbol o-30 glow no-underline"
-        title="{{ .Permalink | absURL | lower | urlize }}"></a></h2-->
-      {{ .Content }}
+                                title="{{ .Permalink | absURL | lower | urlize }}"></a></h2-->
+    
+      {{/* partial "content.html" .  `_INDEX.MD` */}}
     </aside>
+    {{ .Render "li" }}
+  {{ end }}
 
-    {{ range .Pages }}
-    <!-- Main layout, in a single column -->
-    <article class="highlight db dark-gray athelas f5 f4-ns f3-m f3-l lh-copy measure pa2 measure-ns pa4-ns measure-m pa2-m measure-wide-l pa0-l mr-auto ml-auto">
-      <article
-        class="highlight db dark-gray athelas f5 f4-ns f3-m f3-l lh-copy measure pa2 measure-ns pa4-ns measure-m pa2-m measure-wide-l pa0-l mr-auto ml-auto">
-        <heading>
-          <!--svg viewBox="0 0 482 482" class="no-select pr2 h2 red" style="-webkit-transform: translate3d(0,0,0);"><use xlink:href="#url"></use></svg-->
-          <h3 class="f1 mb0">{{ .Title }}&nbsp;<!--a href="{{ .RelPermalink }}" class="link emojisymbol o-30 glow no-underline"
-              title="{{ .Permalink | absURL | lower | urlize }}"></a--></h3><!-- Alternative "already documented" SVG: https://discourse.gohugo.io/t/solved-inject-an-svg-file-into-my-html/7446/9 --><!--code>{{ .Page.CurrentSection.Title | lower | urlize }}</code-->
-          {{ partial "share" . }}
-        </heading>
+
+
+  {{ if eq .Section "nl" }}
+    {{ partial "jumbotron" . }}
+    <!-- The `_index.md` is reserved for the synopsis, introduction or sign-up tiers (figure), breaking out from the main layout. -->
+    <aside
+      class="db dark-gray athelas f5 f4-ns f3-m f3-l lh-copy measure-narrow pa4 measure-ns pa4-ns measure-m pa2-m measure-wide-l pa0-l mr-auto ml-auto">
+      <!--h2>{{ .Title }}&nbsp;<a href="{{ .Permalink }}" class="link emojisymbol o-30 glow no-underline"
+                                title="{{ .Permalink | absURL | lower | urlize }}"></a></h2-->
     
-          <!-- .Content -->
-          {{ block "content" . }}
-            {{ partial "content.html" . }}
-          {{ end  }}
-    </article>
-    {{ end }}<!-- {{/* range .Pages */}} -->
+      {{/* partial "content.html" .  `_INDEX.MD` */}}
+    </aside>
+    {{ .Render "li" }}
+  {{ end }}
+
+{{ end }}
+      
+
+
+
+
+      
+
     
-    </section>
-    {{ end }}<!-- {{/* range .Sections.ByWeight */}} -->
+
   {{ partial "footer" . }}
   {{/* partial "script" . */}}
 </body>

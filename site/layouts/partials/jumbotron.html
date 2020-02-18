@@ -19,7 +19,7 @@
     portrait-vh-50 landscape-vh-66
     landscape-vh-85-ns portrait-vh-85-ns
     landscape-vh-66-m portrait-vh-85-m
-    landscape-vh-85-l bg-center feature bg-sustainer-home"    
+    landscape-vh-85-l bg-center feature {{ if ne .Section "nl" }}bg-sustainer-home{{ end }} {{ if eq .Section "nl" }}bg-red{{ end }}"    
     id="{{ .Params.name | lower | urlize }}"><!-- `lazy-bg` style="background-position:{{- if .Params.backgroundPos -}}{{- .Params.backgroundPos -}}{{- end -}}" -->
     <div class="dtc tc white
           pv4 ph3 v-btm
@@ -38,8 +38,8 @@
             {{ .Params.title }}
           {{ end -}}</span>
         <span class="db f4 f3-ns fw5 ts1-dark-gray">
-          {{- if (isset .Site.Params "jobtitle" ) }}
-            {{ .Site.Params.jobtitle }}
+          {{- if (isset .Site.Params "overview" ) }}
+            {{ .Site.Params.overview }}
           {{ else }}
             {{ .Params.subtitle }}
           {{ end -}}</span>

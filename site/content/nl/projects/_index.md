@@ -1,27 +1,17 @@
 ---
-region: en
+region: nl
 
-weight: 1
-name: home
-title: En, Sustainer Homes
-subtitle: Modern technology meets the oldest building material
+weight: 2
+name: Projects
+title: NL, Portfolio
+subtitle: Cradle-2-Cradle Construction Examples
 icon: info
-
-images: [""]
 
 image:
 imageRetina:
 backgroundPos: 0 0
 
-
-
-
-
 ---
-
-<!--images: ["https://alessandroronca.netlify.com/images/tai-chi.jpg"]-->
-
-
 <!--
 image: images/ale-header-1x.jpg
 imageRetina: images/ale-header-2x.jpg

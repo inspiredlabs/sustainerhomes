@@ -1,27 +1,17 @@
 ---
-region: en
-
-weight: 1
-name: home
-title: En, Sustainer Homes
-subtitle: Modern technology meets the oldest building material
+region: nl
+darft: true
+weight: 8
+name: blog
+title: NL, Sustainer Homes' blog
+subtitle: Our blog
 icon: info
-
-images: [""]
 
 image:
 imageRetina:
 backgroundPos: 0 0
 
-
-
-
-
 ---
-
-<!--images: ["https://alessandroronca.netlify.com/images/tai-chi.jpg"]-->
-
-
 <!--
 image: images/ale-header-1x.jpg
 imageRetina: images/ale-header-2x.jpg

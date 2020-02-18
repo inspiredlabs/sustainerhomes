@@ -1,9 +1,9 @@
 ---
-region: en
+region: nl
 
-weight: 1
+weight: 0
 name: home
-title: En, Sustainer Homes
+title: NL, Sustainer Homes
 subtitle: Modern technology meets the oldest building material
 icon: info
 
